@@ -6,7 +6,7 @@ const alumnoValidator = require("../controllers/middlewares/validators/alumnoVal
 const handleValidation = require("../controllers/middlewares/handleValidation");
 
 router.get("/", getAlumnos);
-router.post("/", alumnoValidator, handleValidation, createAlumno);
+router.post("/", authMiddleware, alumnoValidator, handleValidation, createAlumno);
 router.put("/:id", authMiddleware, alumnoValidator, handleValidation, updateAlumno);
 router.delete("/:id", authMiddleware, deleteAlumno);
 

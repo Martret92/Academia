@@ -6,7 +6,7 @@ const matriculaValidator = require("../controllers/middlewares/validators/matric
 const handleValidation = require("../controllers/middlewares/handleValidation");
 
 router.get("/", getMatriculas);
-router.post("/", matriculaValidator, handleValidation, createMatricula);
+router.post("/", authMiddleware, matriculaValidator, handleValidation, createMatricula);
 router.put("/:id", authMiddleware, matriculaValidator, handleValidation, updateMatricula);
 router.delete("/:id", authMiddleware, deleteMatricula);
 

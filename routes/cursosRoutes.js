@@ -6,7 +6,7 @@ const cursoValidator = require("../controllers/middlewares/validators/cursoValid
 const handleValidation = require("../controllers/middlewares/handleValidation");
 
 router.get("/", getCursos);
-router.post("/", cursoValidator, handleValidation, createCurso);
+router.post("/", authMiddleware, cursoValidator, handleValidation, createCurso);
 router.put("/:id", authMiddleware, cursoValidator, handleValidation, updateCurso);
 router.delete("/:id", authMiddleware, deleteCurso);
 

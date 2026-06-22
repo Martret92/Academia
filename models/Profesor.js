@@ -23,7 +23,6 @@ const Profesor = {
         ),
 
     update: (id, nombre, edad, especialidad_id) =>
-        console.log("Updating profesor with ID:", id, "Nombre:", nombre, "Edad:", edad, "Especialidad ID:", especialidad_id) ||
         pool.query(
             `UPDATE profesores
              SET nombre = $1, edad = $2, especialidad_id = $3
