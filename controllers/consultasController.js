@@ -14,7 +14,7 @@ const getProfesoresPorEdad = async (req, res) => {
 
         res.json({
             sql: "SELECT profesor_id, nombre, edad, especialidad_id FROM profesores WHERE edad = $1 ORDER BY profesor_id",
-            request: "/api/consultas/profesores/por-edad?edad=35",
+            request: `/api/consultas/profesores/por-edad?edad=${edad}`,
             total: resultado.rowCount,
             data: resultado.rows
         });
@@ -43,7 +43,7 @@ const getProfesoresPorRangoEdad = async (req, res) => {
 
         res.json({
             sql: "SELECT profesor_id, nombre, edad, especialidad_id FROM profesores WHERE edad >= $1 AND edad <= $2 ORDER BY edad",
-            request: "/api/consultas/profesores/rango?min=30&max=45",
+            request: `/api/consultas/profesores/rango?min=${min}&max=${max}`,
             total: resultado.rowCount,
             data: resultado.rows
         });
