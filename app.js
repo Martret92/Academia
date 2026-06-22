@@ -8,6 +8,8 @@ const alumnosRoutes = require("./routes/alumnosRoutes");
 const cursosRoutes = require("./routes/cursosRoutes");
 const especialidadesRoutes = require("./routes/especialidadesRoutes");
 const matriculasRoutes = require("./routes/matriculasRoutes");
+const consultasRoutes = require("./routes/consultasRoutes");
+
 
 const app = express();
 
@@ -20,6 +22,9 @@ app.use("/api/alumnos", alumnosRoutes);
 app.use("/api/cursos", cursosRoutes);
 app.use("/api/especialidades", especialidadesRoutes);
 app.use("/api/matriculas", matriculasRoutes);
+app.use("/api/consultas", consultasRoutes);
+
+
 app.use('/health', (req, res) => {
     res.status(200).json({ message: 'API is healthy' });
 });
