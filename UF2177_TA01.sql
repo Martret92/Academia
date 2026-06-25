@@ -23,7 +23,9 @@ CREATE TABLE logs_cambios (
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+----------------------------------
 -- Ejercicio 1: Función SQL Básica
+----------------------------------
 CREATE OR REPLACE FUNCTION obtener_precio_neto(p_id INT)
 RETURNS NUMERIC AS $$
     SELECT precio * 1.21
@@ -31,7 +33,9 @@ RETURNS NUMERIC AS $$
     WHERE id = p_id;
 $$ LANGUAGE SQL;
 
+------------------------------------------------------
 -- Ejercicio 2: Función PL/pgSQL con Variables y RAISE
+------------------------------------------------------
 CREATE OR REPLACE FUNCTION validar_y_actualizar(
     p_id INT,
     p_nuevo_precio NUMERIC
@@ -58,8 +62,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-
+----------------------------------------------------
 -- Ejercicio 3: Función PL/pgSQL con FOR LOOP y CASE
+----------------------------------------------------
 CREATE OR REPLACE FUNCTION clasificar_y_ajustar_precios(
     p_categoria VARCHAR
 )
@@ -101,7 +106,10 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+-----------
 -- Pruebas:
+-----------
+
 -- SELECT * FROM productos;
 -- SELECT obtener_precio_neto(1);
 -- SELECT validar_y_actualizar(1, 25);
